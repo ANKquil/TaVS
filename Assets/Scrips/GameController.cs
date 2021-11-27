@@ -170,4 +170,31 @@ public class GameController : MonoBehaviour
         }
         return 0;
     }
+
+
+    void SetWiner(int player, int score)
+    {
+        score++;
+        objectsController.SetScore(player, text: score.ToString() + "\nWIN");
+        objectsController.SetActiveWin(true);
+    }
+
+
+    public void Reset()
+    {
+        win = false;
+        clicks = 0;
+        playerNow = 0;
+        krestik = true;
+        listKrestiks.Clear();
+        listNoliks.Clear();
+        Allow = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+        //objectsController.SetAllBlocks(0);
+        objectsController.SetActiveWin(false);
+        objectsController.SetScore(1, player1Score.ToString());
+        if (bot)
+            objectsController.SetScore(0, botScore.ToString());
+        else
+            objectsController.SetScore(2, player2Score.ToString());
+    }
 }
