@@ -118,4 +118,56 @@ public class GameController : MonoBehaviour
         }
         return 0;
     }
+
+
+    readonly string[,] winCombinations = {
+        {"11", "12", "13"},{"21", "22", "23"},{"31", "32", "33"},
+        {"11", "22", "33"},{"12", "22", "32"},{"13", "23", "33"},
+        {"11", "22", "33"},{"13", "22", "31"},{"11", "21", "31"}
+    };
+
+
+    int CheckWin()
+    {
+        if (krestik)
+        {
+            for (int i = 0; i < winCombinations.Length / 3; i++)
+            {
+                bool[] next = { false, false, false };
+                foreach (string str in listKrestiks)
+                {
+                    if (winCombinations[i, 0] == str) next[0] = true;
+                    if (winCombinations[i, 1] == str) next[1] = true;
+                    if (winCombinations[i, 2] == str) next[2] = true;
+                }
+                if (next[0] == true && next[1] == true && next[2] == true)
+                {
+                    win = true;
+                    //SetWiner(1, player1Score++);
+                    return 1;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < winCombinations.Length / 3; i++)
+            {
+                bool[] next = { false, false, false };
+                foreach (string str in listNoliks)
+                {
+                    if (winCombinations[i, 0] == str) next[0] = true;
+                    if (winCombinations[i, 1] == str) next[1] = true;
+                    if (winCombinations[i, 2] == str) next[2] = true;
+                }
+                if (next[0] == true && next[1] == true && next[2] == true)
+                {
+                    win = true;
+                    //if (bot) SetWiner(0, botScore++);
+                    //else SetWiner(2, player2Score++);
+                    return 2;
+                }
+            }
+        }
+        return 0;
+    }
 }
