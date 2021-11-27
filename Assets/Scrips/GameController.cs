@@ -35,7 +35,6 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-
     }
 
 
@@ -69,5 +68,54 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    int Choose(string name, bool b)
+    {
+        int x = (Convert.ToInt32(name) / 10) % 10 - 1;
+        int y = Convert.ToInt32(name) % 10 - 1;
+
+        if (Allow[x, y] != 0) return 0;
+
+        if (krestik)
+        {
+           // objectsController.SetBlock(name, 1);
+            Allow[x, y] = 1;
+            listKrestiks.Add(name);
+            //CheckWin();
+        }
+        else
+        {
+            //objectsController.SetBlock(name, 2);
+            Allow[x, y] = 2;
+            listNoliks.Add(name);
+            //CheckWin();
+        }
+        if (win) return 0;
+
+        clicks++;
+        if (clicks >= 9)
+        {
+            //Reset();
+        }
+        krestik = !krestik;
+
+        if (bot)
+        {
+            if (!b)
+            {
+                playerNow = 0;
+                //BotChoose();
+            }
+        }
+        else
+        {
+            if (playerNow == 1)
+                playerNow = 2;
+            else
+                playerNow = 1;
+        }
+        return 0;
     }
 }
