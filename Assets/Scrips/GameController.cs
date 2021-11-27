@@ -38,4 +38,36 @@ public class GameController : MonoBehaviour
 
     }
 
+
+    void TouchController()
+    {
+        RaycastHit hit;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider != null)
+                {
+                    //Choose(hit.collider.name, false);
+                }
+            }
+        }
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider != null)
+                {
+                    //Choose(hit.collider.name, false);
+                }
+            }
+        }
+    }
 }
