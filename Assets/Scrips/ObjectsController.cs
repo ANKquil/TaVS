@@ -39,31 +39,31 @@ public class ObjectsController : MonoBehaviour
         switch (num)
         {
             case "11":
-                allow = blocks[0].GetComponent<BlockController>().IsActive();
+                //allow = blocks[0].GetComponent<BlockController>().IsActive();
                 break;
             case "12":
-                allow = blocks[1].GetComponent<BlockController>().IsActive();
+                //allow = blocks[1].GetComponent<BlockController>().IsActive();
                 break;
             case "13":
-                allow = blocks[2].GetComponent<BlockController>().IsActive();
+                //allow = blocks[2].GetComponent<BlockController>().IsActive();
                 break;
             case "21":
-                allow = blocks[3].GetComponent<BlockController>().IsActive();
+                //allow = blocks[3].GetComponent<BlockController>().IsActive();
                 break;
             case "22":
-                allow = blocks[4].GetComponent<BlockController>().IsActive();
+                //allow = blocks[4].GetComponent<BlockController>().IsActive();
                 break;
             case "23":
-                allow = blocks[5].GetComponent<BlockController>().IsActive();
+                //allow = blocks[5].GetComponent<BlockController>().IsActive();
                 break;
             case "31":
-                allow = blocks[6].GetComponent<BlockController>().IsActive();
+                //allow = blocks[6].GetComponent<BlockController>().IsActive();
                 break;
             case "32":
-                allow = blocks[7].GetComponent<BlockController>().IsActive();
+                //allow = blocks[7].GetComponent<BlockController>().IsActive();
                 break;
             case "33":
-                allow = blocks[8].GetComponent<BlockController>().IsActive();
+                //allow = blocks[8].GetComponent<BlockController>().IsActive();
                 break;
         }
         return allow;
