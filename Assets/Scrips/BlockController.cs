@@ -28,9 +28,4 @@ public class BlockController : MonoBehaviour
             active = false;
         }
     }
-
-    public bool IsActive()
-    {
-        return active;
-    }
 }

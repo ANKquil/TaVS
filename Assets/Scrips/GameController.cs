@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("!!!!!");
+        TouchController();
     }
 
 
@@ -46,10 +48,13 @@ public class GameController : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            Debug.Log("!");
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log("!!");
                 if (hit.collider != null)
                 {
+                    Debug.Log("!!!");
                     Choose(hit.collider.name, false);
                 }
             }
@@ -64,6 +69,7 @@ public class GameController : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
+                    Debug.Log("!");
                     Choose(hit.collider.name, false);
                 }
             }
