@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    //Choose(hit.collider.name, false);
+                    Choose(hit.collider.name, false);
                 }
             }
         }
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    //Choose(hit.collider.name, false);
+                    Choose(hit.collider.name, false);
                 }
             }
         }
@@ -80,24 +80,24 @@ public class GameController : MonoBehaviour
 
         if (krestik)
         {
-           // objectsController.SetBlock(name, 1);
+            objectsController.SetBlock(name, 1);
             Allow[x, y] = 1;
             listKrestiks.Add(name);
-            //CheckWin();
+            CheckWin();
         }
         else
         {
-            //objectsController.SetBlock(name, 2);
+            objectsController.SetBlock(name, 2);
             Allow[x, y] = 2;
             listNoliks.Add(name);
-            //CheckWin();
+            CheckWin();
         }
         if (win) return 0;
 
         clicks++;
         if (clicks >= 9)
         {
-            //Reset();
+            Reset();
         }
         krestik = !krestik;
 
@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
             if (!b)
             {
                 playerNow = 0;
-                //BotChoose();
+                BotChoose();
             }
         }
         else
@@ -143,7 +143,7 @@ public class GameController : MonoBehaviour
                 if (next[0] == true && next[1] == true && next[2] == true)
                 {
                     win = true;
-                    //SetWiner(1, player1Score++);
+                    SetWiner(1, player1Score++);
                     return 1;
                 }
             }
@@ -162,8 +162,8 @@ public class GameController : MonoBehaviour
                 if (next[0] == true && next[1] == true && next[2] == true)
                 {
                     win = true;
-                    //if (bot) SetWiner(0, botScore++);
-                    //else SetWiner(2, player2Score++);
+                    if (bot) SetWiner(0, botScore++);
+                    else SetWiner(2, player2Score++);
                     return 2;
                 }
             }
@@ -189,7 +189,7 @@ public class GameController : MonoBehaviour
         listKrestiks.Clear();
         listNoliks.Clear();
         Allow = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
-        //objectsController.SetAllBlocks(0);
+        objectsController.SetAllBlocks(0);
         objectsController.SetActiveWin(false);
         objectsController.SetScore(1, player1Score.ToString());
         if (bot)
