@@ -197,4 +197,139 @@ public class GameController : MonoBehaviour
         else
             objectsController.SetScore(2, player2Score.ToString());
     }
+
+
+    int BotChoose()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            int count = 0;
+            bool[] next = { false, false, false };
+            for (int j = 0; j < 3; j++)
+            {
+                foreach (string str in listNoliks)
+                {
+                    if (winCombinations[i, j] == str)
+                    {
+                        next[j] = true;
+                        count++;
+                    }
+                }
+            }
+            if (count == 2)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (next[j] == false)
+                    {
+                        if (Allow[Convert.ToInt32(winCombinations[i, j]) / 10 % 10 - 1,
+                            Convert.ToInt32(winCombinations[i, j]) % 10 - 1] == 0)
+                        {
+                            Debug.Log("count == 2\nwinCombinations[i, j]");
+                            Choose(winCombinations[i, j], true);
+                            return 1;
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 9; i++)
+        {
+            int count = 0;
+            bool[] next = { false, false, false };
+            for (int j = 0; j < 3; j++)
+            {
+                foreach (string str in listKrestiks)
+                {
+                    if (winCombinations[i, j] == str)
+                    {
+                        next[j] = true;
+                        count++;
+                    }
+                }
+            }
+            if (count == 2)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (next[j] == false)
+                    {
+                        if (Allow[Convert.ToInt32(winCombinations[i, j]) / 10 % 10 - 1,
+                            Convert.ToInt32(winCombinations[i, j]) % 10 - 1] == 0)
+                        {
+                            Debug.Log("count == 2\nwinCombinations[i, j]");
+                            Choose(winCombinations[i, j], true);
+                            return 1;
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 9; i++)
+        {
+            int count = 0;
+            bool[] next = { false, false, false };
+            for (int j = 0; j < 3; j++)
+            {
+                foreach (string str in listNoliks)
+                {
+                    if (winCombinations[i, j] == str)
+                    {
+                        next[j] = true;
+                        count++;
+                    }
+                }
+            }
+            if (count == 2)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (next[j] == false)
+                    {
+                        if (Allow[Convert.ToInt32(winCombinations[i, j]) / 10 % 10 - 1,
+                            Convert.ToInt32(winCombinations[i, j]) % 10 - 1] == 0)
+                        {
+                            Debug.Log("count == 2\nwinCombinations[i, j]");
+                            Choose(winCombinations[i, j], true);
+                            return 1;
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 9; i++)
+        {
+            int count = 0;
+            bool[] next = { false, false, false };
+            for (int j = 0; j < 3; j++)
+            {
+                foreach (string str in listKrestiks)
+                {
+                    if (winCombinations[i, j] == str)
+                    {
+                        next[j] = true;
+                        count++;
+                    }
+                }
+            }
+            if (count == 1)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (next[j] == false)
+                    {
+                        if (Allow[Convert.ToInt32(winCombinations[i, j]) / 10 % 10 - 1,
+                            Convert.ToInt32(winCombinations[i, j]) % 10 - 1] == 0)
+                        {
+                            Debug.Log("count == 1\nwinCombinations[i, j]");
+                            Choose(winCombinations[i, j], true);
+                            return 2;
+                        }
+                    }
+                }
+            }
+        }
+        Debug.Log("EXIT");
+        return 0;
+    }
 }
